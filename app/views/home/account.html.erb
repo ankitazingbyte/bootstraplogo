@@ -1,0 +1,31 @@
+<div class= "container">	
+	<center><h1><b>Account</b></h1></center><br><br>
+	<div class="column">
+    <div class= "col-md-8">
+     <%= render 'users/sessions/new' %>
+    </div>
+    <% @blogs.each do |blog| %>
+      <div class= "col-md-4">
+          <p style="font-size:20px;" ><b>
+            <%= blog.title %></b>
+          </p><br>
+
+          <p style="font-size:15px; color:grey;">
+            <%= blog.description.html_safe %>
+          </p><br>
+
+          <p>
+            <%#= image_tag @blog.avatar.url %>
+          </p>
+            
+          <p>
+            <strong style="font-size:20px;">Recent Posts</strong><br><br>
+              <ul>
+                <li><p style="font-size:15px;"><%= blog.recentposts %></p></li>
+              </ul>
+          </p>
+          <% end %>
+            
+      </div>
+  </div>
+</div>

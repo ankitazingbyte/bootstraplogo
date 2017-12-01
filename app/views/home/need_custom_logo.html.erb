@@ -1,0 +1,41 @@
+<div class= "container">
+  <center>  
+    <div class= "padding">
+      <center><h1><b>Need a Custom Logo</b></h1></center><br><br>
+      <h1 style="font-size:18px; color:grey;">There is a good chance you love the logos in our shop but didn’t find one that would work for your business. No sweat! If you need something designed specific to you, then let’s chat. Here are some examples of custom work I have done. Complete the form bellow to get a project started.</h1>
+      <div class="column">
+        <h3><b>Send a message</b></h3>
+          <%= form_for :message, url: :home_contact_us_mailer, method: 'post' do |f| %>
+              <div class="col-sm-12">
+               <%#= select_tag(:category_id, options_for_select(@categories), :prompt=> "I need a custom logo") %>
+              </div>
+              <div class="col-sm-12">
+                <label for="email">
+                  <h1 style="font-size:20px; color:grey;"><b>Name</b></h1>
+                </label>
+                  <%= f.text_field :name, class: "form-control"  %>
+              </div>
+
+              <div class="col-sm-12">
+                <label for="email">
+                <h1 style="font-size:20px; color:grey;"><b>Email</b></h1>
+                </label>
+                  <%= f.text_field :email, class: "form-control"  %>
+              </div>
+
+              <div class="col-sm-12">
+                <label for="message">
+                <h1 style="font-size:20px; color:grey;"><b>Message</b></h1>
+                </label>
+                  <%= f.text_area :message, class: "form-control"  %><br>
+              </div>
+
+              <div class="col-sm-6 ">
+                <%= f.submit "send message", class: "button" %>
+              </div>
+          <% end %>
+      </div>
+      <!-- /.column -->
+    </div>
+  </center>
+</div>

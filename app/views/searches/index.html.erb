@@ -1,0 +1,23 @@
+<div class="container">  
+  <p id="notice"><%= notice %></p>
+
+  <center><h1><b>Search Results</b></h1>
+    <h1 style="font-size:30px; color:grey;" >You searched for "<% @logos.each do |logo| %><%= logo.name %><% end %>"</h1>
+  </center>
+
+ 
+      <% @logos.each do |logo| %><br>
+       <div class="col-xs-3">
+          <h1 style="font-size:30px;"><b><%= logo.name %></b></h1>
+        </div>
+        <div class= 'column'>
+            <div class="col-md-9">
+            <a href="/logos/<%= logo.id %>"><%= image_tag logo.avatar.url, class:"img-responsive", class: "thumbnail", width: "150", height: "150"  %></a>
+          </div>
+          <div class="col-md-12">
+          <h3 style="font-size:20px;"><%= logo.description %></h3>
+        </div>
+        </div>
+      <% end %>
+      <br><br><br><br><br>
+</div>

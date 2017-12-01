@@ -1,0 +1,12 @@
+<div class="container">	
+	<center>
+	<h1>Checkout</h1>
+	<div class="shopping-cart">
+	  <%= render "shopping_cart" %>
+	  <%= link_to "Shopping Continue", logos_path, class: "btn btn-link" %>
+	  
+	  
+	  <%= link_to "Place Order", orders_path(order: current_order), class: "btn btn-link", :method => "get" %>
+	</div>
+</center>
+</div>

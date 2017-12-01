@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<div class= container>
+  <center>
+   <h1 style="font-size:30px;"><b><%= @logo.name %></b></h1>
+  </center><br>
+
+  <p>
+    <%= image_tag @logo.avatar.url %>
+  </p><br>
+
+  <p>
+    <h1 style="font-size:20px;"><%= @logo.description %></h1>
+  </p>
+
+  <%= form_for @order_item, remote: true do |f| %>
+    <h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency @logo.price %></span></h4>
+    <div class="input-group">
+      <%= f.number_field :quantity, value: 0, min: 0 %>
+      <div class="input-group-btn">
+        <%= f.hidden_field :logo_id, value: @logo.id %>
+        <%= f.submit "add_to_cart", class: "btn btn-primary" %>
+      </div>
+      <div class="input-group-btn">
+        <%= link_to "Buy Now", orders_path, class: "btn btn-link", class: "btn btn-danger"%>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to 'Edit', edit_logo_path(@logo) %> |
+  <%= link_to 'Destroy', logo_path(@logo),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Back', logos_path %>
+</div>

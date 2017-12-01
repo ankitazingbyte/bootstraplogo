@@ -1,0 +1,27 @@
+<div class="container">
+  <h1> Order Summary</h1>
+  <tr>
+  <strong>Login With Email:</strong>
+  <td><%#= current_user.email %></td>
+  <td>
+   <%#= link_to "Change", new_user_session_path, :class => 'navbar-link', class: "btn btn-primary"  %>
+   
+   </td>
+   </tr><br>
+   <%#= render "shopping_cart", orders: @orders %>
+  <% @orders.each do |order| %>
+  <% order.order_items.each do |item|%>
+          <tr>
+            <td><%= item.logo.name%></td>
+            <td><%= item.unit_price%></td>
+            <td><%= item.quantity%></td>
+            <td><%= item.total_price%></td>
+            <td><%= image_tag(item.logo.image.url)%></td>
+                <%= link_to "remove", order_path(order),
+                method: :delete,
+                data: { confirm: 'Are you sure?' },class: "btn btn-danger" %>
+
+          </tr>
+  <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LogoApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style >
+		.thumbnail{
+		     border:none !important;
+		     background: transparent !important;
+		     box-shadow:none !important;
+		  }
+
+	</style>
+  </head>
+	<body>
+	    <br><br>
+	  	<nav class="navbar">
+		  <div class="container">
+		    <nav class="navbar navbar-light bg-faded">
+			  <div class="navbar-brand">
+			  	<div class= "row">
+			  		<%= image_tag "logo.jpg", width: "30", height:"30", class: "d-inline-block align-top" %><b><%= link_to "Bootstrap Logos", logos_path %></b></h3>
+			    </div>
+			  </div>
+			  	<ul class="nav navbar-nav navbar-right">
+			      	<li><%= link_to 'Account', home_account_path %></li>
+			     	<li><%= image_tag "cart.png", width: "30", height:"30" %></li><li><%= render 'layouts/cart_text' %></li>
+			 <!-- search button -->
+    				<li><%= form_tag(searches_path, method: :get) do %>
+  							<%= text_field_tag :name, params[:term]%>
+  							<%= submit_tag 'Search' %>
+						<% end %></li>
+		    	</ul>
+			</nav>
+		    <ul class="nav navbar-nav ">
+		      <li style="font-size:15px; color:grey;"><%= link_to 'How It Works', search_path(1) %></li>
+		      <li style="font-size:15px; color:grey;"><%= link_to 'About', about_path(1) %></li>
+		      <li style="font-size:15px; color:grey;"><%= link_to 'Blog', blog_path(1) %></li>
+		      <li style="font-size:15px; color:grey;"><%= link_to 'Contact', home_contact_path %></li>
+		      <li><i class="fa fa-star"></i><li style="font-size:15px; color:grey;"><%= link_to 'Need a Custom Logo?', home_need_custom_logo_path %></li></li>
+		    </ul>
+		  </div>
+		</nav>
+
+		<div class="container">
+			<%= yield %>
+		</div>
+
+		<br><br>
+		<div class= "container">
+		    <div class= col-md-4>
+	    		<p style="font-size:20px;"><b>Bootstrap Logos</b></p><br>
+	    		<p style="color:grey;">Off the shelf logos. For builders, makers, and people with big dreams but small budgets.</p>
+	    		<p style="color:grey;">Bootstrap logos is a product by Kyle Lambert (@calloutcreative).</p>
+	    	</div>
+	    	<div class= col-md-4>
+	    		<p style="font-size:20px;"><b>Menu</b></p><br>
+	    		<ul>
+	    		<li><%= link_to 'How It Works', search_path(1) %></li>
+			    <li><%= link_to 'About', about_path(1) %></li>
+			    <li><%= link_to 'Blog', blog_path(1) %></li>
+			    <li><%= link_to 'Contact', home_contact_path %></li>
+			    <li><i class="fa fa-star"></i><%= link_to 'Need a Custom Logo?', home_need_custom_logo_path %></li>   
+			    </ul>	
+			</div>
+			<div class= col-md-4>
+				<p id="notice"><%= notice %></p>
+				<p style="font-size:20px;"><b>Sign up for email updates!</b></p><br>
+				<p style="color:grey;">Get notified when new logos become available</p>
+				<h2>Sign up</h2>
+                <%= render 'users/registrations/new' %>
+
+			</div>
+    	</div>
+    	<footer>
+			<div class="footer-copyright">
+			    <div class="container">
+			      <center>
+			        <h1 style="font-size:18px; color: #666;">
+			          Copyright © 2017 Bootstrap Logos  
+			        </h1>
+			      </center>
+			    </div>
+			</div>
+		</footer>
+	</body>
+</html>

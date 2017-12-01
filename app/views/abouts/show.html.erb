@@ -1,0 +1,26 @@
+<center>
+	<div class= "padding">	
+		<div class="column">
+			<p id="notice"><%= notice %></p>
+				<center><h1><b><%= @about.title %></b></h1></center>
+						<%= @about.text.html_safe %>
+			<div class="column">
+				<div class="col-sm-6">
+						<%= image_tag @about.avatar.url %>
+				</div>
+				<div class="col-sm-6">
+					<div align="left">
+				 		<%= @about.description.html_safe %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%= link_to 'Edit', edit_about_path(@about) %>
+</center>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>

@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="column">
+    <div class= "col-md-8">
+      <% for question in @blog.questions %>
+        <h1 style="font-size:30px;" >
+          <b><%= h question.content %></b><br><br>
+          </h1>
+        
+          <% for answer in question.answers %>
+           <p style="font-size:15px; color:grey;"><%= h answer.content.html_safe %></p><br>
+          <% end %>
+        
+      <% end %>
+    </div>
+      <div class= "col-md-4">
+          <p style="font-size:20px;" >
+            <b><%= @blog.title %></b>
+          </p><br>
+
+          <p style="font-size:15px; color:grey;">
+            <%= @blog.description.html_safe %>
+          </p><br>
+
+          <p>
+            <%#= image_tag @blog.avatar.url %>
+          </p>
+            
+          <p>
+            <strong style="font-size:20px;">Recent Posts</strong><br><br>
+              <ul>
+                <li><p style="font-size:15px;"><b><%= @blog.recentposts %></b></p></li>
+              </ul>
+          </p>
+
+            <%= link_to 'Edit', edit_blog_path(@blog) %> |
+            <%= link_to 'Back', blogs_path %>
+      </div>
+  </div>
+</div>

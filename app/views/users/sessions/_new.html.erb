@@ -1,0 +1,17 @@
+<h2>Log in</h2>
+
+  <%= form_for :user,  url: session_path(:user) do |f| %>
+
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, size: "80*500" , placeholder: "Email" %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "off", size: "80*500", placeholder: "Password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Log in", class: "button" %>
+    </div>
+  <% end %>
+

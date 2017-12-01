@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<div class= "container-fluid">
+  <center>
+    <h1 style="font-size:30px;"><b>logos for sale!</b></h1>
+    <h1 style="font-size:30px; color:grey;">All logos $350! Purchase one and you alone own it. When a logo is purchased it sells out.</h1>
+  </center>
+  <div class="container">
+    <div class="row">
+      <% @logos.each do |logo| %>
+        <div class="col-xs-3">
+          <a href="/logos/<%= logo.id %>"><%= image_tag logo.avatar.url, class:"img-responsive", class: "thumbnail", width: "90", height: "90"  %></a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <%= link_to 'New Logo', new_logo_path %>
+</div>
