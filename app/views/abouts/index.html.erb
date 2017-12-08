@@ -1,22 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<h1>About</h1>
-
-<table>
- <tbody>
-    <% @abouts.each do |about| %>
-      <tr>
-        <td><%= about.title %></td>
-        <td><%= about.text.html_safe %></td>
-        <td><%= about.description.html_safe %></td>
-        <td><%= link_to 'Show', about %></td>
-        <td><%= link_to 'Edit', edit_about_path(about) %></td>
-        <td><%= link_to 'Destroy', about, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New About', new_about_path %>
+<center>
+  <div class= "padding">  
+    <div class="column">
+      <p id="notice"><%= notice %></p>
+        <% @abouts.each do |about| %>
+          <center><h1><b><%= about.title %></b></h1></center>
+            <%= about.text.html_safe %>
+            <div class="column">
+              <div class="col-sm-6">
+                  <%= image_tag about.avatar.url %>
+              </div>
+              <div class="col-sm-6">
+                <div align="left">
+                  <%= about.description.html_safe %>
+                </div>
+              </div>
+            </div>
+        <% end %>
+    </div>
+  </div>
+</center>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>

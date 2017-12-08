@@ -16,7 +16,6 @@
 			</div>
 		</div>
 	</div>
-	<%= link_to 'Edit', edit_about_path(@about) %>
 </center>
 <br><br><br><br>
 <br><br><br><br>
@@ -24,3 +23,7 @@
 <br><br><br><br>
 <br><br><br><br>
 <br><br><br><br>
+
+<%= link_to 'New About', new_about_path %>
+<td><%= link_to 'Edit', edit_about_path(@about) %></td>
+        <td><%= link_to 'Destroy', @about, method: :delete, data: { confirm: 'Are you sure?' } %></td>
