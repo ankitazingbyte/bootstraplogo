@@ -15,10 +15,10 @@ class BlogsController < ApplicationController
   # GET /blogs/new
   def new
     @blog = Blog.new
-    8.times do
-      question = @blog.questions.build
+      8.times do
+        question = @blog.questions.build
         1.times { question.answers.build }
-  end
+      end
   end
 
   # GET /blogs/1/edit

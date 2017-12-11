@@ -13,5 +13,5 @@
 //= require jquery
 //= require rails-ujs
 //= require ckeditor/init
-//= require_tree .
 //= require bootstrap-sprockets
+//= require_tree .
