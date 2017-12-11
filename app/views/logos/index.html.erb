@@ -8,7 +8,7 @@
     <div class="row">
       <% @logos.each do |logo| %>
         <div class="col-xs-3">
-          <a href="/logos/<%= logo.id %>"><%= image_tag logo.avatar.url, class:"img-responsive", class: "thumbnail", width: "90", height: "90"  %></a>
+          <a href="/logos/<%= logo.id %>"><%= image_tag logo.avatar.url, class: "img-responsive thumbnail", width: "90", height: "90"  %></a>
         </div>
       <% end %>
     </div>

@@ -69,13 +69,15 @@ ActiveRecord::Schema.define(version: 20171201062936) do
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.integer "quantity"
     t.integer "logo_id"
     t.integer "order_id"
+    t.integer "quantity"
     t.float "unit_price"
     t.float "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["logo_id"], name: "index_order_items_on_logo_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
   end
 
   create_table "order_statuses", force: :cascade do |t|
@@ -87,8 +89,10 @@ ActiveRecord::Schema.define(version: 20171201062936) do
   create_table "orders", force: :cascade do |t|
     t.float "total"
     t.float "sub_total"
+    t.integer "order_status_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["order_status_id"], name: "index_orders_on_order_status_id"
   end
 
   create_table "questions", force: :cascade do |t|

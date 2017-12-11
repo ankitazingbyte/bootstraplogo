@@ -7,13 +7,11 @@ class LogosController < ApplicationController
     @logos = Logo.all
      @logos = Logo.search(params[:name])
       @order_item = current_order.order_items.new
-
   end
 
   # GET /logos/1
   # GET /logos/1.json
   def show
-    
     @order_item = current_order.order_items.new
   end
 
