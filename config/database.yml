@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: postgresql
+  adapter: postgrespl
   encoding: unicode
   username: postgres
   password: 12345678

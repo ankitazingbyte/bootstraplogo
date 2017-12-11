@@ -13,9 +13,9 @@ class HomeController < ApplicationController
 	end
 
 	def contact_us_mailer
-	    @email = params[:test][:email]
-	    @name = params[:test][:name]
-	    @message = params[:test][:message]
+	    @email = params[:message][:email]
+	    @name = params[:message][:name]
+	    @message = params[:message][:message]
 	    @user = User.create(name: @name, message: @message, email: @email, password: "12345678")
 	    UserMailer.welcome_email(@user).deliver_now
 	    redirect_to root_path
