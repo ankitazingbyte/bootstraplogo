@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171201062936) do
+ActiveRecord::Schema.define(version: 20171212060421) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "title"
@@ -107,6 +107,16 @@ ActiveRecord::Schema.define(version: 20171201062936) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "email"
+    t.integer "card_number"
+    t.integer "card_code"
+    t.integer "card_month"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "stripe_customer_token"
   end
 
   create_table "users", force: :cascade do |t|

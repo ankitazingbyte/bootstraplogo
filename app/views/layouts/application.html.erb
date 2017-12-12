@@ -3,7 +3,7 @@
   <head>
     <title>LogoApp</title>
     <%= csrf_meta_tags %>
-<%= javascript_include_tag "application" %>
+	<%= javascript_include_tag "application" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -14,6 +14,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<%= javascript_include_tag "https://js.stripe.com/v1/", "application" %>
+	<%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
 	<style >
 		.thumbnail{
 		     border:none !important;
@@ -86,8 +88,7 @@
 				<p style="color:grey;">Get notified when new logos become available</p>
 				<h2>Sign up</h2>
                 <%= render 'users/registrations/new' %>
-
-			</div>
+            </div>
     	</div>
     	<footer>
 			<div class="footer-copyright">

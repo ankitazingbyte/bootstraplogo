@@ -1,4 +1,5 @@
 class Logo < ApplicationRecord
+  has_many :subscriptions
     mount_uploader :avatar, AvatarUploader
     belongs_to :order, optional: true
 	has_many :order_items

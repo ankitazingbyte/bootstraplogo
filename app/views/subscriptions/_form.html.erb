@@ -1,0 +1,53 @@
+<%= form_for @subscription do |form| %>
+  <% if subscription.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+
+      <ul>
+      <% subscription.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+
+  <%= form.hidden_field :stripe_card_token %>
+    <div class="col-sm-8">
+      <div class="field">
+        <h4> Email Address *</h4>
+        <%= form.text_field :email, id: :subscription_email, placeholder: "Enter Email", class: "form-control" %>
+      </div>
+    </div><br>
+    <% if @subscription.stripe_card_token %>
+        Credit card has been provided
+        <% else %>
+          <div class="col-sm-8">
+            <div class="field">
+              <h4> Credit Card Number* </h4>
+              <%= form.text_field :card_number, id: :subscription_card_number, placeholder: "Card Number", class: "form-control" %>
+            </div>
+          </div><br>
+          <div class="col-sm-8">
+            <div class="field">
+              <h4>Security Code on Card (CVV)* </h4>
+              <%= form.text_field :card_code, id: :subscription_card_code, placeholder: "security code", class: "form-control" %>
+            </div>
+          </div><br>
+          <div class="col-sm-8">
+            <div class="field">
+              <h4>Expiration (MM/YY)* </h4>
+              <%= select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}%>
+              <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
+            </div>
+          </div><br>
+      <% end %>
+      <!-- Form fields omitted -->
+      <div id="stripe_error">
+        <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+      </div>
+      <div class="col-sm-8">
+      <div class="actions"><br>
+        <%= form.submit "Subscribe" %>
+      </div>
+    </div>
+  <% end %>

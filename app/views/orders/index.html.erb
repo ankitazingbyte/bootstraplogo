@@ -1,27 +1,35 @@
 <div class="container">
   <h1> Order Summary</h1>
   <tr>
-  <strong>Login With Email:</strong>
-  <td><%#= current_user.email %></td>
-  <td>
-   <%#= link_to "Change", new_user_session_path, :class => 'navbar-link', class: "btn btn-primary"  %>
-   
-   </td>
-   </tr><br>
+    <strong>Login With Email:</strong>
+    <td><%#= current_user.email %></td>
+    <td>
+     <%#= link_to "Change", new_user_session_path, :class => 'navbar-link', class: "btn btn-primary"  %></td>
+  </tr><br>
    <%#= render "shopping_cart", orders: @orders %>
-  <% @orders.each do |order| %>
-  <% order.order_items.each do |item|%>
+    <table style="width:100%">
+      <tr>
+        <th>Name: </th>
+        <th>Price: </th>
+        <th>Quantity: </th>
+        <th>Total_price: </th>
+        <th>Item: </th>
+      </tr>
+      <% @orders.each do |order| %>
+      <% order.order_items.each do |item|%>
           <tr>
             <td><%= item.logo.name%></td>
             <td><%= item.unit_price%></td>
             <td><%= item.quantity%></td>
             <td><%= item.total_price%></td>
-            <td><%= image_tag(item.logo.image.url)%></td>
-                <%= link_to "remove", order_path(order),
+            <td><%= image_tag item.logo.avatar.url, class: "img-responsive thumbnail", width: "90", height: "90" %>
+            <td><h4 style align="right"> <%= link_to "Remove", order_path(order),
                 method: :delete,
-                data: { confirm: 'Are you sure?' },class: "btn btn-danger" %>
-
+                data: { confirm: 'Are you sure?' } %></h4></td>
           </tr>
+   
   <% end %>
   <% end %>
+   </table>
+  <%= link_to 'Make a Payment', new_subscription_path %>
 </div>

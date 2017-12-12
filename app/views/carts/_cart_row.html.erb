@@ -1,8 +1,8 @@
 <div class="well">
   <div class="row">
     <div class="col-xs-8">
-      <h4><%= logo.name %></h4>
-      <%= image_tag logo.avatar.url %>
+      <h4><%#= logo.name %></h4>
+      <%= image_tag logo.avatar.url, class: "img-responsive thumbnail", width: "90", height: "90" %>
     </div>
     <div class="col-xs-4">
       <%= form_for order_item, remote: true do |f| %>
